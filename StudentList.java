@@ -9,13 +9,13 @@ public class StudentList {
 			if(args[0].equals("a")) {
 			System.out.println("Loading data ...");			
 			try {
-				BufferedReader s = new BufferedReader(
+				BufferedReader bufferedReader = new BufferedReader(
 						new InputStreamReader(
 								new FileInputStream("students.txt"))); 
-				String r = s.readLine();
-				String i[] = r.split(",");			
-				for(String j : i) { 
-					System.out.println(j.trim()); 
+				String studentsNameInSingleString = bufferedReader.readLine();
+				String students[] = studentsNameInSingleString.split(",");			
+				for(String student : students) { 
+					System.out.println(student.trim()); 
 				}
 			} catch (Exception e){
 
@@ -25,14 +25,14 @@ public class StudentList {
 			else if(args[0].equals("r")) {
 				System.out.println("Loading data ...");			
 				try {
-					BufferedReader s = new BufferedReader(
+					BufferedReader bufferedReader = new BufferedReader(
 							new InputStreamReader(
 									new FileInputStream("students.txt"))); 
-					String r = s.readLine();
-					String i[] = r.split(",");	
-					Random x = new Random();
-					int y = x.nextInt(i.length);
-					System.out.println(i[y].trim());
+					String studentsNameInSingleString = bufferedReader.readLine();
+					String students[] = studentsNameInSingleString.split(",");	
+					Random random = new Random();
+					int randomIndexForStudentSelection = random.nextInt(students.length);
+					System.out.println(students[randomIndexForStudentSelection].trim());
 				} catch (Exception e){
 
 				} 
@@ -41,15 +41,15 @@ public class StudentList {
 			else if(args[0].contains("+")){
 				System.out.println("Loading data ...");			
 				try {
-					BufferedWriter s = new BufferedWriter(
+					BufferedWriter bufferedWriter = new BufferedWriter(
 							new FileWriter("students.txt", true));
-					String t = args[0].substring(1);
-					Date d = new Date();
-					String df = "dd-mm-yyyy hh:mm:ss a";
-					DateFormat dateFormat = new SimpleDateFormat(df);
-					String fd = dateFormat.format(d);
-					s.write(", "+ t + "\nList last updated on " + fd);
-					s.close();
+					String newStudent = args[0].substring(1);
+					Date date = new Date();
+					String dateFormatModel = "dd-mm-yyyy hh:mm:ss a";
+					DateFormat dateFormat = new SimpleDateFormat(dateFormatModel);
+					String fomatedDateForOutput = dateFormat.format(date);
+					bufferedWriter.write(", "+ newStudent + "\nList last updated on " + fomatedDateForOutput);
+					bufferedWriter.close();
 				} catch (Exception e){
 
 				}
@@ -60,15 +60,15 @@ public class StudentList {
 			{
 				System.out.println("Loading data ...");			
 				try {
-					BufferedReader s = new BufferedReader(
+					BufferedReader bufferedReader = new BufferedReader(
 							new InputStreamReader(
 									new FileInputStream("students.txt"))); 
-					String r = s.readLine();
-					String i[] = r.split(",");	
+					String studentsNameInSingleString = bufferedReader.readLine();
+					String students[] = studentsNameInSingleString.split(",");	
 					boolean done = false;
-					String t = args[0].substring(1);
-					for(int idx = 0; idx<i.length && !done; idx++) {
-						if(i[idx].equals(t)) {
+					String searchedStudentName = args[0].substring(1);
+					for(int index = 0; index<students.length && !done; index++) {
+						if(students[index].equals(searchedStudentName)) {
 							System.out.println("We found it!");
 							done=true;
 						}
@@ -82,13 +82,12 @@ public class StudentList {
 			{
 				System.out.println("Loading data ...");			
 				try {
-					BufferedReader s = new BufferedReader(
+					BufferedReader bufferedReader = new BufferedReader(
 							new InputStreamReader(
 									new FileInputStream("students.txt"))); 
-					String D = s.readLine();
-					char a[] = D.toCharArray();	
-					String i[] = D.split("[ ,]+");	
-					System.out.println(i.length +" word(s) found ");
+					String studentsNameInSingleString = bufferedReader.readLine();
+					String students[] = studentsNameInSingleString.split("[ ,]+");	
+					System.out.println(students.length +" word(s) found ");
 				} catch (Exception e){
 
 				} 
