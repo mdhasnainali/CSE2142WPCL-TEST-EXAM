@@ -13,7 +13,7 @@ public class StudentList {
 				System.out.println(Constants.DATA_LOADING);
 				try {
 					String studentsNameInSingleString = readFromFile(Constants.FILE_NAME);
-					String students[] = studentsNameInSingleString.split(",");
+					String students[] = studentsNameInSingleString.split(Constants.COMMA_SIGN);
 					for (String student : students) {
 						System.out.println(student.trim());
 					}
@@ -25,7 +25,7 @@ public class StudentList {
 				System.out.println(Constants.DATA_LOADING);
 				try {
 					String studentsNameInSingleString = readFromFile(Constants.FILE_NAME);
-					String students[] = studentsNameInSingleString.split(",");
+					String students[] = studentsNameInSingleString.split(Constants.COMMA_SIGN);
 					Random random = new Random();
 					int randomIndexForStudentSelection = random.nextInt(students.length);
 					System.out.println(students[randomIndexForStudentSelection].trim());
@@ -51,7 +51,7 @@ public class StudentList {
 				System.out.println(Constants.DATA_LOADING);
 				try {
 					String studentsNameInSingleString = readFromFile(Constants.FILE_NAME);
-					String students[] = studentsNameInSingleString.split(",");
+					String students[] = studentsNameInSingleString.split(Constants.COMMA_SIGN);
 					boolean done = false;
 					String searchedStudentName = args[0].substring(1);
 					for (int index = 0; index < students.length && !done; index++) {
@@ -68,7 +68,7 @@ public class StudentList {
 				System.out.println(Constants.DATA_LOADING);
 				try {
 					String studentsNameInSingleString = readFromFile(Constants.FILE_NAME);
-					String students[] = studentsNameInSingleString.split("[ ,]+");
+					String students[] = studentsNameInSingleString.split(Constants.COMMA_AND_SPACE_SIGN);
 					System.out.println(students.length + Constants.WORDS_FOUND);
 				} catch (Exception e) {
 

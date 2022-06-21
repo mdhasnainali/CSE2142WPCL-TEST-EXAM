@@ -7,6 +7,8 @@ public abstract class Constants {
     public static String CHAR_R = "r";
     public static String QUESTION_MARK = "?";
     public static String PLUS_SIGN = "+";
+    public static String COMMA_SIGN = ",";
+    public static String COMMA_AND_SPACE_SIGN = "[ ,]+";
     public static String ERROR_MESSAGE_READING = "Error reading file";
     public static String ERROR_MESSAGE_WRITING = "Error writing file";
     public static String DATE_FORMAT_MODEL = "dd-mm-yyyy hh:mm:ss a";
