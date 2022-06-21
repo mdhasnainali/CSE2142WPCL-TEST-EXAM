@@ -6,11 +6,13 @@ public class StudentList {
 	public static void main(String[] args) {
 
 		// Check arguments
-		try {
-			if (args[0].equals("a")) {
-				System.out.println("Loading data ...");
+		if (args.length != 1) {
+			System.out.println(Constants.ERROR_MESSAGE_WRONG_ARGUMENTS);
+		} else {
+			if (args[0].equals(Constants.CHAR_A)) {
+				System.out.println(Constants.DATA_LOADING);
 				try {
-					String studentsNameInSingleString = readFromFile("students.txt");
+					String studentsNameInSingleString = readFromFile(Constants.FILE_NAME);
 					String students[] = studentsNameInSingleString.split(",");
 					for (String student : students) {
 						System.out.println(student.trim());
@@ -18,11 +20,11 @@ public class StudentList {
 				} catch (Exception e) {
 
 				}
-				System.out.println("Data Loaded.");
-			} else if (args[0].equals("r")) {
-				System.out.println("Loading data ...");
+				System.out.println(Constants.DATA_LOADED);
+			} else if (args[0].equals(Constants.CHAR_R)) {
+				System.out.println(Constants.DATA_LOADING);
 				try {
-					String studentsNameInSingleString = readFromFile("students.txt");
+					String studentsNameInSingleString = readFromFile(Constants.FILE_NAME);
 					String students[] = studentsNameInSingleString.split(",");
 					Random random = new Random();
 					int randomIndexForStudentSelection = random.nextInt(students.length);
@@ -30,51 +32,51 @@ public class StudentList {
 				} catch (Exception e) {
 
 				}
-				System.out.println("Data Loaded.");
-			} else if (args[0].contains("+")) {
-				System.out.println("Loading data ...");
+				System.out.println(Constants.DATA_LOADED);
+			} else if (args[0].contains(Constants.PLUS_SIGN)) {
+				System.out.println(Constants.DATA_LOADING);
 				try {
 					String newStudent = args[0].substring(1);
 					Date date = new Date();
-					String dateFormatModel = "dd-mm-yyyy hh:mm:ss a";
-					DateFormat dateFormat = new SimpleDateFormat(dateFormatModel);
+					DateFormat dateFormat = new SimpleDateFormat(Constants.DATE_FORMAT_MODEL);
 					String formattedDateForOutput = dateFormat.format(date);
-					writeInFile(", " + newStudent + "\nList last updated on " + formattedDateForOutput, "students.txt");
+					writeInFile(", " + newStudent + Constants.LAST_UPDATE + formattedDateForOutput,
+							Constants.FILE_NAME);
 				} catch (Exception e) {
 
 				}
 
-				System.out.println("Data Loaded.");
-			} else if (args[0].contains("?")) {
-				System.out.println("Loading data ...");
+				System.out.println(Constants.DATA_LOADED);
+			} else if (args[0].contains(Constants.QUESTION_MARK)) {
+				System.out.println(Constants.DATA_LOADING);
 				try {
-					String studentsNameInSingleString = readFromFile("students.txt");
+					String studentsNameInSingleString = readFromFile(Constants.FILE_NAME);
 					String students[] = studentsNameInSingleString.split(",");
 					boolean done = false;
 					String searchedStudentName = args[0].substring(1);
 					for (int index = 0; index < students.length && !done; index++) {
 						if (students[index].equals(searchedStudentName)) {
-							System.out.println("We found it!");
+							System.out.println(Constants.FOUND);
 							done = true;
 						}
 					}
 				} catch (Exception e) {
 
 				}
-				System.out.println("Data Loaded.");
-			} else if (args[0].contains("c")) {
-				System.out.println("Loading data ...");
+				System.out.println(Constants.DATA_LOADED);
+			} else if (args[0].contains(Constants.CHAR_C)) {
+				System.out.println(Constants.DATA_LOADING);
 				try {
-					String studentsNameInSingleString = readFromFile("students.txt");
+					String studentsNameInSingleString = readFromFile(Constants.FILE_NAME);
 					String students[] = studentsNameInSingleString.split("[ ,]+");
-					System.out.println(students.length + " word(s) found ");
+					System.out.println(students.length + Constants.WORDS_FOUND);
 				} catch (Exception e) {
 
 				}
-				System.out.println("Data Loaded.");
+				System.out.println(Constants.DATA_LOADED);
+			} else {
+				System.out.println(Constants.ERROR_MESSAGE_WRONG_ARGUMENTS);
 			}
-		} catch (ArrayIndexOutOfBoundsException e) {
-			System.out.println("You have not provide any perimeter. Please provide a perimeter!");
 		}
 	}
 
@@ -87,7 +89,7 @@ public class StudentList {
 			bufferedReader.close();
 			return readLine;
 		} catch (Exception e) {
-			System.out.println("Error reading file");
+			System.out.println(Constants.ERROR_MESSAGE_READING);
 		}
 		return "";
 	}
@@ -99,7 +101,7 @@ public class StudentList {
 			bufferedWriter.write(writingText);
 			bufferedWriter.close();
 		} catch (Exception e) {
-			System.out.println("Error writing file");
+			System.out.println(Constants.ERROR_MESSAGE_WRITING);
 		}
 	}
 }
