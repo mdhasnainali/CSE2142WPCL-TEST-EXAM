@@ -5,7 +5,6 @@ import java.util.*;
 public class StudentList {
 	public static void main(String[] args) {
 
-		// Check arguments
 		if (args.length != 1) {
 			System.out.println(Constants.ERROR_MESSAGE_WRONG_ARGUMENTS);
 		} else {
