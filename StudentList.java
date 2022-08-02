@@ -37,9 +37,8 @@ public class StudentList {
 				System.out.println(Constants.DATA_LOADING);
 				try {
 					String newStudent = args[0].substring(1);
-					Date date = new Date();
 					DateFormat dateFormat = new SimpleDateFormat(Constants.DATE_FORMAT_MODEL);
-					String formattedDateForOutput = dateFormat.format(date);
+					String formattedDateForOutput = dateFormat.format(new Date());
 					writeInFile(", " + newStudent + Constants.LAST_UPDATE + formattedDateForOutput,
 							Constants.FILE_NAME);
 				} catch (Exception e) {
