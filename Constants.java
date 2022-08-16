@@ -16,5 +16,6 @@ public abstract class Constants {
     public static String WORDS_FOUND = " word(s) found";
     public static String LAST_UPDATE = "\nList last updated on ";
     public static String ERROR_MESSAGE_WRONG_ARGUMENTS = "You have not provide proper argument. Please provide a|c|r|+{New_Students}|{Students_Name}";
+    public static String ERROR_MESSAGE_WRONG_FILE = "Please provide correct file name and path also check the file permission";
 
 }
