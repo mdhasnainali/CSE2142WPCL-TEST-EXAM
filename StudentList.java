@@ -17,7 +17,7 @@ public class StudentList {
 						System.out.println(student.trim());
 					}
 				} catch (Exception e) {
-
+					System.out.println("Please provide correct file name and path");
 				}
 				System.out.println(Constants.DATA_LOADED);
 			} else if (args[0].equals(Constants.CHAR_R)) {
@@ -28,8 +28,8 @@ public class StudentList {
 					Random random = new Random();
 					int randomIndexForStudentSelection = random.nextInt(students.length);
 					System.out.println(students[randomIndexForStudentSelection].trim());
-				} catch (Exception e) {
-
+				} catch (Exception e) {	
+					System.out.println("Please provide correct file name and path");
 				}
 				System.out.println(Constants.DATA_LOADED);
 			} else if (args[0].contains(Constants.PLUS_SIGN)) {
@@ -41,7 +41,7 @@ public class StudentList {
 					writeInFile(", " + newStudent + Constants.LAST_UPDATE + formattedDateForOutput,
 							Constants.FILE_NAME);
 				} catch (Exception e) {
-
+					System.out.println("Please provide correct file name and path");
 				}
 
 				System.out.println(Constants.DATA_LOADED);
@@ -58,7 +58,7 @@ public class StudentList {
 						}
 					}
 				} catch (Exception e) {
-
+					System.out.println("Please provide correct file name and path");
 				}
 				System.out.println(Constants.DATA_LOADED);
 			} else if (args[0].contains(Constants.CHAR_C)) {
@@ -68,7 +68,7 @@ public class StudentList {
 					String students[] = studentsNameInSingleString.split(Constants.COMMA_AND_SPACE_SIGN);
 					System.out.println(students.length + Constants.WORDS_FOUND);
 				} catch (Exception e) {
-
+					System.out.println("Please provide correct file name and path");
 				}
 				System.out.println(Constants.DATA_LOADED);
 			} else {
