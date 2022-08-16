@@ -5,9 +5,12 @@ import java.util.*;
 public class StudentList {
 	public static void main(String[] args) {
 
+		// Check Arguments 
 		if (args.length != 1) {
 			System.out.println(Constants.ERROR_MESSAGE_WRONG_ARGUMENTS);
 		} else {
+
+			// Print all the students name
 			if (args[0].equals(Constants.CHAR_A)) {
 				System.out.println(Constants.DATA_LOADING);
 				try {
@@ -20,7 +23,10 @@ public class StudentList {
 					System.out.println("Please provide correct file name and path");
 				}
 				System.out.println(Constants.DATA_LOADED);
-			} else if (args[0].equals(Constants.CHAR_R)) {
+			} 
+			
+			// Select a random student and print it
+			else if (args[0].equals(Constants.CHAR_R)) {
 				System.out.println(Constants.DATA_LOADING);
 				try {
 					String studentsNameInSingleString = readFromFile(Constants.FILE_NAME);
@@ -32,7 +38,10 @@ public class StudentList {
 					System.out.println("Please provide correct file name and path");
 				}
 				System.out.println(Constants.DATA_LOADED);
-			} else if (args[0].contains(Constants.PLUS_SIGN)) {
+			} 
+			
+			// Adding a student name in the file
+			else if (args[0].contains(Constants.PLUS_SIGN)) {
 				System.out.println(Constants.DATA_LOADING);
 				try {
 					String newStudent = args[0].substring(1);
@@ -45,7 +54,10 @@ public class StudentList {
 				}
 
 				System.out.println(Constants.DATA_LOADED);
-			} else if (args[0].contains(Constants.QUESTION_MARK)) {
+			} 
+			
+			// Check either a student name is in the file or not
+			else if (args[0].contains(Constants.QUESTION_MARK)) {
 				System.out.println(Constants.DATA_LOADING);
 				try {
 					String studentsNameInSingleString = readFromFile(Constants.FILE_NAME);
@@ -61,7 +73,10 @@ public class StudentList {
 					System.out.println("Please provide correct file name and path");
 				}
 				System.out.println(Constants.DATA_LOADED);
-			} else if (args[0].contains(Constants.CHAR_C)) {
+			} 
+
+			// Count the total number of students
+			else if (args[0].contains(Constants.CHAR_C)) {
 				System.out.println(Constants.DATA_LOADING);
 				try {
 					String studentsNameInSingleString = readFromFile(Constants.FILE_NAME);
@@ -77,6 +92,7 @@ public class StudentList {
 		}
 	}
 
+	// Read from the file
 	public static String readFromFile(String fileName) {
 		try {
 			BufferedReader bufferedReader = new BufferedReader(
@@ -91,6 +107,7 @@ public class StudentList {
 		return "";
 	}
 
+	// Write into the file
 	public static void writeInFile(String writingText, String fileName) {
 		try {
 			BufferedWriter bufferedWriter = new BufferedWriter(
