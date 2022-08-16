@@ -5,7 +5,7 @@ import java.util.*;
 public class StudentList {
 	public static void main(String[] args) {
 
-		// Check Arguments 
+		// Check Arguments
 		if (args.length != 1) {
 			System.out.println(Constants.ERROR_MESSAGE_WRONG_ARGUMENTS);
 		} else {
@@ -23,8 +23,8 @@ public class StudentList {
 					System.out.println("Please provide correct file name and path");
 				}
 				System.out.println(Constants.DATA_LOADED);
-			} 
-			
+			}
+
 			// Select a random student and print it
 			else if (args[0].equals(Constants.CHAR_R)) {
 				System.out.println(Constants.DATA_LOADING);
@@ -34,12 +34,12 @@ public class StudentList {
 					Random random = new Random();
 					int randomIndexForStudentSelection = random.nextInt(students.length);
 					System.out.println(students[randomIndexForStudentSelection].trim());
-				} catch (Exception e) {	
+				} catch (Exception e) {
 					System.out.println("Please provide correct file name and path");
 				}
 				System.out.println(Constants.DATA_LOADED);
-			} 
-			
+			}
+
 			// Adding a student name in the file
 			else if (args[0].contains(Constants.PLUS_SIGN)) {
 				System.out.println(Constants.DATA_LOADING);
@@ -54,8 +54,8 @@ public class StudentList {
 				}
 
 				System.out.println(Constants.DATA_LOADED);
-			} 
-			
+			}
+
 			// Check either a student name is in the file or not
 			else if (args[0].contains(Constants.QUESTION_MARK)) {
 				System.out.println(Constants.DATA_LOADING);
@@ -73,7 +73,7 @@ public class StudentList {
 					System.out.println("Please provide correct file name and path");
 				}
 				System.out.println(Constants.DATA_LOADED);
-			} 
+			}
 
 			// Count the total number of students
 			else if (args[0].contains(Constants.CHAR_C)) {
